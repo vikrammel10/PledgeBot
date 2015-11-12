@@ -1,5 +1,10 @@
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 import java.util.Random;
+
+import org.json.simple.JSONObject;
 public class questions {
 	public static void delay(int time)
 	{
@@ -12,8 +17,18 @@ public class questions {
 	}
 	
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
+		JSONObject obj=new JSONObject();
+		obj.put("name","foo");
+		obj.put("num",new Integer(100));
+		obj.put("balance",new Double(1000.21));
+		obj.put("is_vip",new Boolean(true));
+		obj.put("nickname",null);
+		try(FileWriter file = new FileWriter("json/out.json")) {
+			file.write(obj.toJSONString());
+		}
+		
 		Scanner kb = new Scanner(System.in);
 		System.out.println("hey, thanks for coming.");
 		delay(2000);
