@@ -20,7 +20,7 @@ public class questions {
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		JSONObject obj=new JSONObject();
-		obj.put("name","foo");
+		obj.put("nam","foo");
 		obj.put("num",new Integer(100));
 		obj.put("balance",new Double(1000.21));
 		obj.put("is_vip",new Boolean(true));
