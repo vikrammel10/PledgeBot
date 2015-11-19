@@ -4,6 +4,7 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 import java.util.Random;
 
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 public class questions {
 	public static void delay(int time)
@@ -19,21 +20,29 @@ public class questions {
 
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-		JSONObject obj=new JSONObject();
-		obj.put("nam","foo");
+		JSONArray obj=new JSONArray();
+		/*obj.put("nam","foo");
 		obj.put("num",new Integer(100));
 		obj.put("balance",new Double(1000.21));
 		obj.put("is_vip",new Boolean(true));
-		obj.put("nickname",null);
+		obj.put("nickname",null);*/
+		/*obj.add(new brother("Nick","Columbia"));
+		obj.add(new brother("Mel","Columbia"));
 		try(FileWriter file = new FileWriter("json/out.json")) {
 			file.write(obj.toJSONString());
-		}
+		}*/
 		
 		Scanner kb = new Scanner(System.in);
 		System.out.println("hey, thanks for coming.");
-		delay(2000);
+		//delay(2000);
 		System.out.println("soo... how do i spell your name?");
 		String name = kb.nextLine();
+		System.out.println("and where are you from?");
+		String hometown = kb.nextLine();
+		obj.add(new brother(name,hometown));
+		try(FileWriter file = new FileWriter("json/out.json",true)) {
+			file.write(obj.toJSONString());
+		}
 		System.out.println("cool, lemme get a sec to write that down");
 		delay(2000);
 		System.out.println("just to be PC, could you please specify your gender/sex");
